@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Electricity Bill</title></head>
+<body>
+	<h2>Monthly Electricity Bill</h2>
+	<input id="units" type="number" min="0" placeholder="Units consumed">
+	<button onclick="calculate()">Calculate</button>
+	<p id="result"></p>
+
+	<script>
+		function calculate() {
+			var units = Number(document.getElementById("units").value), bill;
+			if (units <= 100) bill = units * 5;
+			else if (units <= 200) bill = 500 + (units - 100) * 7;
+			else bill = 1200 + (units - 200) * 10;
+			var charge = 50, total = bill + charge;
+			document.getElementById("result").innerHTML =
+				"Units consumed: " + units + "<br>Bill amount: ₹" + bill +
+				"<br>Application charge: ₹" + charge + "<br>Final payable amount: ₹" + total;
+		}
+	</script>
+</body>
+</html>
